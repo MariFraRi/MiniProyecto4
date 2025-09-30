@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to your Jupyter Book &#8212; Mini Proyecto 4 - Machine Learning</title>
+    <title>Clasificación de Préstamos con Random Forest en PySpark &#8212; Mini Proyecto 4 - Machine Learning</title>
   
   
   
@@ -176,7 +176,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
+                    Clasificación de Préstamos con Random Forest en PySpark
                 </a>
             </li>
         </ul>
@@ -359,7 +359,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -370,11 +372,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Clasificación de Préstamos con Random Forest en PySpark</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-aplicado">Contexto aplicado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-utilizado">Dataset utilizado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-del-notebook">Diseño del notebook</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,22 +397,66 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pysparkeda.html"><strong>ANALISIS EXPLORATORIO DE DATOS</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyspark.html">Modelado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyspark.html#resultados-del-modelo-scikit-learn">Resultados del modelo (scikit-learn)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyspark.html#modelo-pyspark">Modelo Pyspark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyspark.html#resultados-del-modelo-pyspark">Resultados del modelo (PySpark)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyspark.html#preguntas">Preguntas</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="clasificacion-de-prestamos-con-random-forest-en-pyspark">
+<h1>Clasificación de Préstamos con Random Forest en PySpark<a class="headerlink" href="#clasificacion-de-prestamos-con-random-forest-en-pyspark" title="Link to this heading">#</a></h1>
+<p>Este proyecto aplica <strong>modelos de clasificación supervisada</strong> usando <strong>Random Forest</strong> en <strong>PySpark</strong> para predecir el <strong>incumplimiento de préstamos</strong>, a partir de un dataset con información financiera y crediticia de los clientes.<br />
+Además, se incluyen comparaciones con <strong>scikit-learn</strong> y un análisis de interpretabilidad con <strong>LIME</strong>, con el fin de entender las decisiones del modelo.</p>
+<hr class="docutils" />
+<section id="objetivo-general">
+<h2>Objetivo general<a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Construir un pipeline de preprocesamiento y clasificación usando <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> en PySpark.</p></li>
+<li><p>Evaluar el desempeño del modelo con métricas estándar (accuracy, precision, recall, f1, AUC).</p></li>
+<li><p>Comparar resultados y tiempos de cómputo entre PySpark y scikit-learn.</p></li>
+<li><p>Analizar la interpretabilidad del modelo mediante explicaciones locales con <strong>LIME</strong>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="contexto-aplicado">
+<h2>Contexto aplicado<a class="headerlink" href="#contexto-aplicado" title="Link to this heading">#</a></h2>
+<p>La predicción de <strong>incumplimiento de créditos</strong> es fundamental para entidades financieras, ya que permite:</p>
+<ul class="simple">
+<li><p>Reducir riesgos en la colocación de préstamos.</p></li>
+<li><p>Identificar clientes con mayor probabilidad de incumplir.</p></li>
+<li><p>Mejorar la toma de decisiones con modelos interpretables.</p></li>
 </ul>
+<p>El uso de PySpark facilita la escalabilidad en entornos con <strong>grandes volúmenes de datos</strong>, mientras que la comparación con scikit-learn muestra las diferencias en <strong>rendimiento y tiempo de cómputo</strong>.<br />
+Finalmente, con <strong>LIME</strong> se busca dotar al modelo de transparencia, explicando las contribuciones de cada variable en predicciones específicas.</p>
+</section>
+<hr class="docutils" />
+<section id="dataset-utilizado">
+<h2>Dataset utilizado<a class="headerlink" href="#dataset-utilizado" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fuente: Dataset de créditos (columna <code class="docutils literal notranslate"><span class="pre">label</span></code>: 1 = incumple, 0 = no incumple).</p></li>
+<li><p>Número de registros: ~1000 (en la muestra procesada).</p></li>
+<li><p>Variables principales:</p>
+<ul>
+<li><p><strong>Demográficas</strong>: edad, historial crediticio.</p></li>
+<li><p><strong>Financieras</strong>: ingresos, monto del préstamo, tasa de interés.</p></li>
+<li><p><strong>Crediticias</strong>: score FICO, número de cuentas abiertas, deudas previas.</p></li>
+</ul>
+</li>
+<li><p>Variable objetivo:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code> (1 = incumple, 0 = no incumple).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="diseno-del-notebook">
+<h2>Diseño del notebook<a class="headerlink" href="#diseno-del-notebook" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Carga y análisis exploratorio del dataset</strong> (EDA).</p></li>
+<li><p><strong>Preprocesamiento y partición train/test</strong> evitando <em>data leakage</em>.</p></li>
+<li><p><strong>Entrenamiento con Random Forest en PySpark</strong>.</p></li>
+<li><p><strong>Comparación con scikit-learn</strong> en métricas y tiempos.</p></li>
+<li><p><strong>Interpretabilidad con LIME</strong> para explicar decisiones del modelo.</p></li>
+<li><p><strong>Evaluación de resultados y visualizaciones</strong> (matriz de confusión, curva ROC).</p></li>
+<li><p><strong>Reflexión crítica y conclusiones</strong>.</p></li>
+</ol>
+</section>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -448,6 +505,24 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-aplicado">Contexto aplicado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-utilizado">Dataset utilizado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-del-notebook">Diseño del notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
